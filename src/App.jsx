@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import ItemTarefa from './components/ItemTarefa'
 
 function App() {
   const [texto, setTexto] = useState('')
@@ -67,23 +68,12 @@ function App() {
         ) : (
           <ul>
             {tarefas.map((tarefa) => (
-              <li key={tarefa.id} className={tarefa.concluida ? 'concluida' : ''}>
-                <label className="item">
-                  <input
-                    type="checkbox"
-                    checked={tarefa.concluida}
-                    onChange={() => alternarConcluida(tarefa.id)}
-                  />
-                  <span>{tarefa.texto}</span>
-                </label>
-                <button
-                  type="button"
-                  className="excluir"
-                  onClick={() => excluirTarefa(tarefa.id)}
-                >
-                  Excluir
-                </button>
-              </li>
+              <ItemTarefa
+                key={tarefa.id}
+                tarefa={tarefa}
+                aoAlternarConclusao={alternarConcluida}
+                aoExcluir={excluirTarefa}
+              />
             ))}
           </ul>
         )}
