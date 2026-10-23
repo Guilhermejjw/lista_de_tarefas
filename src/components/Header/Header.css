@@ -1,0 +1,130 @@
+.site-header {
+  position: relative;
+  overflow: hidden;
+  padding: 0 7.5%;
+  color: #f4fbff;
+  background:
+    linear-gradient(115deg, transparent 0 68%, rgb(0 169 183 / 18%) 68% 68.2%, transparent 68.2%),
+    var(--blue-deep);
+}
+
+.site-header::after {
+  position: absolute;
+  right: 8%;
+  bottom: -98px;
+  width: 270px;
+  height: 170px;
+  border: 1px solid rgb(117 225 230 / 30%);
+  border-radius: 50%;
+  content: '';
+  transform: rotate(-22deg);
+  pointer-events: none;
+}
+
+.header-inner,
+.brand,
+.site-header nav,
+.header-status {
+  display: flex;
+  align-items: center;
+}
+
+.header-inner {
+  position: relative;
+  z-index: 1;
+  min-height: 76px;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(222 244 250 / 16%);
+}
+
+.brand {
+  gap: 10px;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  width: 34px;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid #62d8dc;
+  color: #8cf0eb;
+  font-size: 1rem;
+}
+
+.brand-accent {
+  color: #84e7e5;
+}
+
+.site-header nav a {
+  padding: 8px 12px;
+  color: #deedf4;
+  font-size: 0.92rem;
+  text-decoration: none;
+}
+
+.site-header nav a:hover {
+  color: #8cf0eb;
+}
+
+.header-status {
+  gap: 8px;
+  color: #c1d3de;
+  font-size: 0.8rem;
+}
+
+.header-status span {
+  width: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #55d6b2;
+  box-shadow: 0 0 0 4px rgb(85 214 178 / 12%);
+}
+
+.header-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 54px 0 62px;
+}
+
+.eyebrow {
+  margin-bottom: 14px;
+  color: #82e1e1;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+}
+
+.header-description {
+  margin-top: 14px;
+  color: #c6d8e2;
+  font-size: 1.05rem;
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    padding: 0 22px;
+  }
+
+  .header-inner {
+    min-height: 66px;
+  }
+
+  .header-status {
+    display: none;
+  }
+
+  .header-copy {
+    padding: 42px 0 48px;
+  }
+
+  .header-description {
+    max-width: 30ch;
+    font-size: 0.98rem;
+  }
+}

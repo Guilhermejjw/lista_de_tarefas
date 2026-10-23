@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './App.css'
-import ItemTarefa from './components/ItemTarefa'
+import Header from './components/Header/Header.jsx'
+import Main from './components/Main/Main.jsx'
+import Footer from './components/Footer/Footer.jsx'
 
 function App() {
   const [texto, setTexto] = useState('')
@@ -41,44 +43,18 @@ function App() {
   }
 
   return (
-    <main className="app">
-      <header className="cabecalho">
-        <h1>Minha Lista de Tarefas</h1>
-        <p>Anote o que precisa estudar, entregar ou revisar.</p>
-      </header>
-
-      <form className="formulario" onSubmit={adicionarTarefa}>
-        <label htmlFor="tarefa">Nova tarefa</label>
-        <div className="campo">
-          <input
-            id="tarefa"
-            type="text"
-            value={texto}
-            onChange={(evento) => setTexto(evento.target.value)}
-            placeholder="Ex.: estudar para a prova de história"
-          />
-          <button type="submit">Adicionar</button>
-        </div>
-      </form>
-
-      <section className="lista" aria-live="polite">
-        <h2>Tarefas</h2>
-        {tarefas.length === 0 ? (
-          <p className="vazia">Sua lista está vazia. Adicione a primeira tarefa.</p>
-        ) : (
-          <ul>
-            {tarefas.map((tarefa) => (
-              <ItemTarefa
-                key={tarefa.id}
-                tarefa={tarefa}
-                aoAlternarConclusao={alternarConcluida}
-                aoExcluir={excluirTarefa}
-              />
-            ))}
-          </ul>
-        )}
-      </section>
-    </main>
+    <div className="app">
+      <Header />
+      <Main
+        texto={texto}
+        tarefas={tarefas}
+        onTextoChange={setTexto}
+        onAdicionarTarefa={adicionarTarefa}
+        onAlternarConcluida={alternarConcluida}
+        onExcluirTarefa={excluirTarefa}
+      />
+      <Footer />
+    </div>
   )
 }
 
